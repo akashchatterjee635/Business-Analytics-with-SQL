@@ -51,22 +51,7 @@ https://www.kaggle.com/datasets/sticktogethertm/business-analysis-junior
 - `Seasonality Script.sql` - containing the SQL code for the analysis.
 - `README.md` - This document.
 
-## Getting Started
 
-- Clone this repository to your local machine.
-- Open and run the SQl Server Management studio for the analysis.
 
-## Usage:
 
-You can replicate the analysis by running the SQL queries against the provided dataset or your own dataset with similar columns.
-
-## Conclusion:
-
-This project aims to provide valuable insights into the business’s performance in 2019 and 2020, highlighting new product revenue, customer segmentation, and revenue trends. The analysis results will help the business make data-driven decisions for future growth.
-
-Feel free to reach out if you have any questions or need further details.
-
-Author: `Mayada Yousuf`
-Mail: mayadayousuf96@gmail.com
-Date: 10/20/2023
 
