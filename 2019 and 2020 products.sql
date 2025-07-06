@@ -1,23 +1,25 @@
--- products IN both 2019 AND 2020
--- comparing products that are IN both years AND finding the most inceased IN revenue 
-SELECT  *
-       ,( tot_amount_of_2020- tot_amount_of_2019) AS Diffrence -- subtracting 2020 amount FROM 2019 amounts to find the diffrence for each product 
-FROM
-(
-	SELECT  [product code] AS Product
-	       ,SUM(amount_of_19)as Tot_amount_of_2019 -- dilevery amount for 2019 
-	       ,SUM(amount_of_20)as Tot_amount_of_2020 -- dilevery amount for 2020 
-	FROM
-	(
-		SELECT  [2019_Data].[Product code]
-		       ,[2019_Data].[Delivery amount]as amount_of_19
-		       ,year([2019_Data].[Date of delivery])as dilevery_date_19
-		       ,[2020_Data].[Delivery amount]as amount_of_20
-		       ,year([2020_Data].[Date of delivery]) AS dilevery_date_20
-		FROM [2019_Data]
-		JOIN [2020_Data]						  -- combining both 2020 AND 2021 to feach the total amounts
-		ON [2019_Data].[Product code] = [2020_Data].[Product code]
-	)x  
-	GROUP BY  [product code]
-)m
-ORDER BY Diffrence;
+-- Step 1: Aggregate revenue per product for each year separately
+WITH revenue_2019 AS (
+    SELECT 
+        [Product code] AS product,
+        SUM([Delivery amount]) AS total_2019
+    FROM [2019_Data]
+    GROUP BY [Product code]
+),
+revenue_2020 AS (
+    SELECT 
+        [Product code] AS product,
+        SUM([Delivery amount]) AS total_2020
+    FROM [2020_Data]
+    GROUP BY [Product code]
+)
+
+-- Step 2: Join only products present in both years
+SELECT 
+    r20.product,
+    total_2019,
+    total_2020,
+    (total_2020 - total_2019) AS difference
+FROM revenue_2020 r20
+JOIN revenue_2019 r19 ON r20.product = r19.product
+ORDER BY difference DESC;
