@@ -46,6 +46,7 @@ https://www.kaggle.com/datasets/sticktogethertm/business-analysis-junior
 - `Cleansed 2020 Data table.sql` - containing the SQL code for the analysis.
 - `2019 and 2020 Products.sql` - containing the SQL code for the analysis.
 - `ABC Analysis Script.sql` - containing the SQL code for the analysis.
+- `ABC_Monthly_Analysis Script.sql` - containing the SQL code for the analysis.
 - `RFM Analysis Script.sql` - containing the SQL code for the analysis.
 - `Novelties products Script.sql` - containing the SQL code for the analysis.
 - `Seasonality Script.sql` - containing the SQL code for the analysis.
